@@ -20,13 +20,26 @@ h1 + p  {
 }
 ul {
   padding-left: 0;
-  list-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
 }
 li {
   padding: .45em .5em;
   margin-bottom: .35em;
-  display: flex;
   align-items: center;
+
+  display: block;
+  color: white;
+  text-align: rigth;
+    /*padding: 16px;*/
+  text-decoration: none;
+    
+}
+li:hover {
+    background-color: #111111;
 }
 input,
 button {
