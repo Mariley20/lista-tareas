@@ -1,67 +1,76 @@
 //document javascript
 var tareas = [
   {
-    "userId": 1,
     "id": 1,
     "title": "delectus aut autem",
-    "completed": false
   },
   {
-    "userId": 1,
     "id": 2,
-    "title": "quis ut nam facilis et officia qui",
-    "completed": false
+    "title": "quis ut nam facilis et officia qui"
   },
   {
-    "userId": 1,
     "id": 3,
-    "title": "fugiat veniam minus",
-    "completed": false
+    "title": "fugiat veniam minus"
   },
   {
-    "userId": 1,
     "id": 4,
-    "title": "et porro tempora",
-    "completed": true
+    "title": "et porro tempora"
   },
   {
-    "userId": 1,
     "id": 5,
-    "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-    "completed": false
+    "title": "laboriosam mollitia et enim quasi adipisci quia provident illum"
   },
   {
-    "userId": 1,
     "id": 6,
-    "title": "qui ullam ratione quibusdam voluptatem quia omnis",
-    "completed": false
+    "title": "qui ullam ratione quibusdam voluptatem quia omnis"
   },
   {
-    "userId": 1,
     "id": 7,
-    "title": "illo expedita consequatur quia in",
-    "completed": false
+    "title": "illo expedita consequatur quia in"
   },
   {
-    "userId": 1,
     "id": 8,
-    "title": "quo adipisci enim quam ut ab",
-    "completed": true
+    "title": "quo adipisci enim quam ut ab"
   },
   {
-    "userId": 1,
     "id": 9,
-    "title": "molestiae perspiciatis ipsa",
-    "completed": false
+    "title": "molestiae perspiciatis ipsa"
   },
   {
-    "userId": 1,
     "id": 10,
-    "title": "illo est ratione doloremque quia maiores aut",
-    "completed": true
+    "title": "illo est ratione doloremque quia maiores aut"
   }]
+
+imprimirHTML();
+var tachar_id;
+
+function imprimirHTML (){
   var tareaHtml = "";
   for(var i = 0; i < tareas.length; i++){
-  	tareaHtml += "<li>"+tareas[i].id+" -> "+tareas[i].title+"</li>";
-  }
-  document.getElementById('listaTarea').innerHTML = tareaHtml;
+ 	tareaHtml += "<li id='"+tareas[i].id+"'>"+tareas[i].id+"- "+tareas[i].title+"</li>";
+}
+  listaTarea.innerHTML = tareaHtml;
+  
+}
+
+var filas = document.getElementsByTagName('li');
+	for(var i = 0; i < filas.length; i++){
+		filas[i].addEventListener('click', function(event){
+			tachar_id = event.target.id
+			document.getElementById(tachar_id).style.textDecoration = "line-through";
+		console.log(tachar_id);
+	});
+}
+
+var agregarTarea = document.getElementById('agregarTarea');
+agregarTarea.onclick = function(){
+	var tareaNueva = document.getElementById('tarea').value;
+	if(tareaNueva != ""){
+		tareas[tareas.length] = {
+			"id" : tareas.length + 1,
+			"title" : tareaNueva
+		}
+		console.log(tareas);
+	}
+	imprimirHTML();
+}
